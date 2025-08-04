@@ -23,7 +23,7 @@ namespace inventario.src.Shared.Helpers
             var minVersion = new Version(8, 0, 0);
             if (detectedVersion < minVersion)
                 throw new NotSupportedException($"Versión de MySQL no soportada: {detectedVersion}. Requiere {minVersion} o superior.");
-            Console.WriteLine($"🔍 MySQL detectado: {detectedVersion}");
+
             var options = new DbContextOptionsBuilder<AppDbContext>()
                 .UseMySql(connectionString, new MySqlServerVersion(detectedVersion))
                 .Options;
