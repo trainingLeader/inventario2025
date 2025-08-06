@@ -17,13 +17,13 @@ public class UserService : IUserService
     }
     public Task<IEnumerable<User>> ConsultarUsuariosAsync()
     {
-        return _repo.GetAllAsync();
+        return _repo.GetAllAsync()!;
     }
 
     public async Task RegistrarUsuarioConTareaAsync(string nombre, string email)
     {
         var existentes = await _repo.GetAllAsync();
-        if (existentes.Any(u => u.Email == email))
+        if (existentes.Any(u => u?.Email == email))
             throw new Exception("El usuario ya existe.");
 
         var user = new User
