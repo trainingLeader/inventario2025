@@ -35,6 +35,6 @@ namespace inventario.src.Modules.Countries.Infrastructure.Repositories
         public void Update(Country entity) =>
             _context.SaveChanges();
         public async Task SaveAsync() =>
-        await _context.SaveChangesAsync(); // ⬅️ Implementación
+            await _context.SaveChangesAsync(); // ⬅️ Implementación
     }
 }

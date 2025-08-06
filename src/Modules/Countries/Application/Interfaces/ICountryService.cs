@@ -10,9 +10,8 @@ public interface ICountryService
 {
     Task<Country?> ObtenerPaisPorIdAsync(int id);
     Task<IEnumerable<Country?>> ConsultarPaisesAsync();
-    Task AgregarPaisAsync(string name);
-    Task ActualizarPaisAsync(int id, string nuevoNombre);
+    Task AgregarPaisAsync(Country county);
+    Task ActualizarPaisAsync(int id, Country country);
     Task EliminarPaisAsync(int id);
-    Task<Country?> ObtenerUsuarioPorIdAsync(int id);
 
 }

@@ -1,4 +1,5 @@
-﻿using inventario.src.Modules.Users.Application.Repositories;
+﻿using inventario.src.Modules.Countries.UI;
+using inventario.src.Modules.Users.Application.Repositories;
 using inventario.src.Modules.Users.Application.Services;
 using inventario.src.Modules.Users.UI;
 using inventario.src.Shared.Helpers;
@@ -11,7 +12,8 @@ while (!salir)
 {
     Console.WriteLine("\n--- MENÚ CRUD ---");
     Console.WriteLine("1. Administrar Usuarios");
-    Console.WriteLine("2. Salir");
+    Console.WriteLine("2. Administrar Paises");
+    Console.WriteLine("3. Salir");
     Console.Write("Opción: ");
     int opm = int.Parse(Console.ReadLine()!);
 
@@ -21,6 +23,9 @@ while (!salir)
             await new MenuUsers(context).RenderMenu();
             break;
         case 2:
+            await new CountryMenu(context).RenderMenu();
+            break;
+        case 3:
             salir = true;
             break;
         default:
