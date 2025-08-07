@@ -8,9 +8,9 @@ namespace inventario.src.Modules.Cities.Application.Interfaces;
 
 public interface ICityService
 {
-    Task<City?> ObtenerCiudadPorIdAsync(int id);
-    Task<IEnumerable<City?>> ConsultarCiudadesAsync();
-    Task AgregarCiudadAsync(City city);
-    Task ActualizarCiudadAsync(int id, City city);
-    Task EliminarCiudadAsync(int id);
+    Task<City?> GetCityById(int id);
+    Task<IEnumerable<City?>> GetAllCities();
+    Task AddCityAsync(City city);
+    Task UpdateCityAsync(int id, City city);
+    Task RemoveCityAsync(int id);
 }

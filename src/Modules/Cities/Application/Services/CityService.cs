@@ -11,45 +11,45 @@ public class CityService : ICityService
 {
     private readonly ICityRepository _cityRepository;
 
-    public CityService(ICityRepository regionRepository)
+    public CityService(ICityRepository countryRepository)
     {
-        _cityRepository = regionRepository;
+        _cityRepository = countryRepository;
     }
-
-    public async Task ActualizarCiudadAsync(int id, City city)
-    {
-        var existingRegion = await _cityRepository.GetByIdAsync(id);
-        if (existingRegion != null)
-        {
-            existingRegion.Name = city.Name;
-            _cityRepository.Update(existingRegion);
-            await _cityRepository.SaveAsync();
-        }
-    }
-
-    public async Task AgregarCiudadAsync(City city)
+    public async Task AddCityAsync(City city)
     {
         _cityRepository.Add(city);
         await _cityRepository.SaveAsync();
     }
 
-    public async Task<IEnumerable<City?>> ConsultarCiudadesAsync()
+    public async Task<IEnumerable<City?>> GetAllCities()
     {
         return await _cityRepository.GetAllAsync();
     }
 
-    public async Task EliminarCiudadAsync(int id)
+    public async Task<City?> GetCityById(int id)
     {
-        var region = await _cityRepository.GetByIdAsync(id);
-        if (region != null)
+        return await _cityRepository.GetByIdAsync(id);
+    }
+
+    public async Task RemoveCityAsync(int id)
+    {
+        var city = await _cityRepository.GetByIdAsync(id);
+        if (city != null)
         {
-            _cityRepository.Remove(region);
+            _cityRepository.Remove(city);
             await _cityRepository.SaveAsync();
         }
     }
 
-    public async Task<City?> ObtenerCiudadPorIdAsync(int id)
+    public async Task UpdateCityAsync(int id, City country)
     {
-        return await _cityRepository.GetByIdAsync(id);
+        var existingCity = await _cityRepository.GetByIdAsync(id);
+        if (existingCity != null)
+        {
+            existingCity.Name = country.Name;
+            existingCity.RegionId = country.RegionId;
+            _cityRepository.Update(existingCity);
+            await _cityRepository.SaveAsync();
+        }
     }
 }
