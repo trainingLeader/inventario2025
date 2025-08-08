@@ -36,5 +36,9 @@ namespace inventario.src.Modules.Countries.Infrastructure.Repositories
             _context.SaveChanges();
         public async Task SaveAsync() =>
             await _context.SaveChangesAsync(); // ⬅️ Implementación
+        public async Task<IEnumerable<Country>> GetAllWithRegionsAsync() =>
+            await _context.Countries.AsNoTracking()
+                .Include(c => c.Regions)
+                .ToListAsync();
     }
 }

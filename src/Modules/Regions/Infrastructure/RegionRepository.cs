@@ -42,11 +42,9 @@ public class RegionRepository : IRegionRepository
     public void Update(Region entity) =>
         _context.SaveChanges();
     
-    public async Task<IEnumerable<Region?>> GetAllWithCountryAsync()
-    {
-        return await _context.Regions
+    public async Task<IEnumerable<Region?>> GetAllWithCountryAsync() =>
+        await _context.Regions.AsNoTracking()
             .Include(r => r.Country)
             .ToListAsync();
-    }
 }
 

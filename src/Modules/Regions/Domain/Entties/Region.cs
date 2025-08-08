@@ -13,5 +13,5 @@ public class Region
     public string Name { get; set; } = string.Empty;
     public int CountryId { get; set; }
     public Country? Country { get; set; }
-    public ICollection<City>? Cities { get; set; }
+    public ICollection<City>? Cities { get; set; } = new HashSet<City>();
 }

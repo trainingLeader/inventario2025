@@ -13,5 +13,6 @@ public interface ICountryService
     Task AgregarPaisAsync(Country county);
     Task ActualizarPaisAsync(int id, Country country);
     Task EliminarPaisAsync(int id);
+    Task<IEnumerable<Country>> ConsultarPaisesConRegionesAsync();
 
 }

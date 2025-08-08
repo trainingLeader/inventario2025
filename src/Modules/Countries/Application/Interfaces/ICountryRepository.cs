@@ -14,4 +14,5 @@ public interface ICountryRepository
     void Remove(Country entity);
     void Update(Country entity);
     Task SaveAsync();
+    Task<IEnumerable<Country>> GetAllWithRegionsAsync();
 }

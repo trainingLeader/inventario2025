@@ -35,7 +35,7 @@ public class CountryService : ICountryService
 
     public async Task<IEnumerable<Country?>> ConsultarPaisesAsync()
     {
-         return await _countryRepository.GetAllAsync();
+        return await _countryRepository.GetAllAsync();
     }
 
     public async Task EliminarPaisAsync(int id)
@@ -51,6 +51,10 @@ public class CountryService : ICountryService
     public async Task<Country?> ObtenerPaisPorIdAsync(int id)
     {
         return await _countryRepository.GetByIdAsync(id);
+    }
+        public async Task<IEnumerable<Country>> ConsultarPaisesConRegionesAsync()
+    {
+        return await _countryRepository.GetAllWithRegionsAsync();
     }
 
 }

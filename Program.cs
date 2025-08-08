@@ -10,6 +10,7 @@ var context = DbContextFactory.Create();
 bool salir = false;
 while (!salir)
 {
+    Console.Clear();
     Console.WriteLine("\n--- MENÚ CRUD ---");
     Console.WriteLine("1. Administrar Usuarios");
     Console.WriteLine("2. Administrar Paises");
