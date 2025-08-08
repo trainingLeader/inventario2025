@@ -67,7 +67,7 @@ public class CountryMenu
                     salir = true;
                     break;
                 default:
-                    Console.WriteLine("❗ Opción inválida.");
+                    Console.WriteLine("Opción inválida.");
                     break;
             }
         }
@@ -92,7 +92,7 @@ public class CountryMenu
         var paises = await _service.ConsultarPaisesAsync();
         if (!paises.Any())
         {
-            Console.WriteLine("ℹNo hay países registrados.");
+            Console.WriteLine("No hay países registrados.");
             return;
         }
 
@@ -169,7 +169,7 @@ public class CountryMenu
             return;
         }
 
-        Console.WriteLine($"👁️ País: ID={pais.Id} | Nombre={pais.Name}");
+        Console.WriteLine($"País: ID={pais.Id} | Nombre={pais.Name}");
     }
     private async Task ListarConRegionesAsync()
     {
